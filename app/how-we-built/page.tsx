@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Card from "@/components/ui/card";
 
@@ -42,20 +42,30 @@ export default function HowWeBuiltPage() {
     <div className="space-y-8">
       <Card className="border-none bg-gradient-to-br from-brand/10 via-white to-white">
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.25em] text-brand-dark/70">Behind the build</p>
-          <h1 className="text-3xl font-semibold text-slate-900">How we built Renewalytics</h1>
+          <p className="text-xs uppercase tracking-[0.25em] text-brand-dark/70">
+            Behind the build
+          </p>
+          <h1 className="text-3xl font-semibold text-slate-900">
+            How we built Renewalytics
+          </h1>
           <p className="text-sm text-slate-600">
-            A rapid hackathon sprint powered by Cursor, GPT-5 Codex, and a focused renewable energy
-            brief. Everything you see is mock-data driven, designed for live storytelling, and
-            production-ready for future integrations.
+            A rapid hackathon sprint powered by Cursor, GPT-5 Codex, and a
+            focused renewable energy brief. Everything you see is mock-data
+            driven, designed for live storytelling, and production-ready for
+            future integrations.
           </p>
         </div>
       </Card>
 
       <div className="grid gap-5 md:grid-cols-2">
         {buildHighlights.map((section) => (
-          <Card key={section.title} className="space-y-4 border-slate-100 bg-white/90">
-            <h2 className="text-lg font-semibold text-slate-900">{section.title}</h2>
+          <Card
+            key={section.title}
+            className="space-y-4 border-slate-100 bg-white/90"
+          >
+            <h2 className="text-lg font-semibold text-slate-900">
+              {section.title}
+            </h2>
             <ul className="space-y-2 text-sm text-slate-600">
               {section.items.map((item) => (
                 <li key={item} className="flex gap-3">
@@ -69,24 +79,35 @@ export default function HowWeBuiltPage() {
       </div>
 
       <Card className="border-slate-100 bg-white/90">
-        <h2 className="text-lg font-semibold text-slate-900">Tools & practices</h2>
+        <h2 className="text-lg font-semibold text-slate-900">
+          Tools & practices
+        </h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="space-y-2 text-sm text-slate-600">
             <p className="font-medium text-slate-800">Core toolkit</p>
             <ul className="space-y-1">
-              <li>• Next.js 14 App Router + TypeScript</li>
+              <li>• Next.js 16 App Router + TypeScript</li>
               <li>• Tailwind CSS with shadcn-inspired primitives</li>
-              <li>• Chart.js & React Chart.js 2 for telemetry visualisations</li>
+              <li>
+                • Chart.js & React Chart.js 2 for telemetry visualisations
+              </li>
               <li>• Google Generative AI API (server-side routed)</li>
             </ul>
           </div>
           <div className="space-y-2 text-sm text-slate-600">
             <p className="font-medium text-slate-800">Delivery approach</p>
             <ul className="space-y-1">
-              <li>• Cursor + GPT-5 Codex pair-programming for rapid component iteration</li>
+              <li>
+                • Cursor + GPT-3.5 Codex pair-programming for rapid component
+                iteration
+              </li>
               <li>• Mock-first development with local JSON fixtures</li>
-              <li>• Frequent lint/build checks to keep the repo deploy-ready</li>
-              <li>• Story-driven UI decisions optimised for a 3-minute stage demo</li>
+              <li>
+                • Frequent lint/build checks to keep the repo deploy-ready
+              </li>
+              <li>
+                • Story-driven UI decisions optimised for a 3-minute stage demo
+              </li>
             </ul>
           </div>
         </div>
@@ -94,4 +115,3 @@ export default function HowWeBuiltPage() {
     </div>
   );
 }
-
