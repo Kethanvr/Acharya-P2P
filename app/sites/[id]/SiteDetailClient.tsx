@@ -8,11 +8,11 @@ import LiveStats from "@/components/LiveStats";
 import LineChart from "@/components/Charts/LineChart";
 import Button from "@/components/ui/button";
 import Card from "@/components/ui/card";
-import { formatDate, formatNumber } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { co2Avoided, kwToKwh } from "@/utils/calculateCarbon";
 import { simulateTelemetryTick } from "@/utils/simulateTelemetry";
 import { exportElementToPDF } from "@/utils/exportElementToPDF";
-import type { Site, TelemetryPoint, TelemetrySeries } from "@/types";
+import type { Site, TelemetrySeries } from "@/types";
 
 const SAMPLE_INTERVAL_MINUTES = 5;
 const REFRESH_INTERVAL_MS = 4000;
