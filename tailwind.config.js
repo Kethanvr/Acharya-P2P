@@ -15,10 +15,15 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-poppins)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: [
+          "var(--font-poppins)",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
-
