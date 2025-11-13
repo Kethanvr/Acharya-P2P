@@ -120,29 +120,54 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-semibold text-slate-900">Deployment Dashboard</h1>
-        <p className="text-sm text-slate-500">
-          Monitor live generation, carbon savings, and deployment readiness across Karnataka sites.
-        </p>
-      </div>
+      <Card className="relative overflow-hidden border-none bg-slate-900 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(20,184,166,0.45),_transparent_55%)]" />
+        <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-xl space-y-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+              Karnataka clean energy pulse
+            </p>
+            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              Deployment Command Centre
+            </h1>
+            <p className="text-sm text-white/70">
+              Track carbon impact, grid readiness, and battery health across every rural and urban
+              install in real time.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-sm md:w-72">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+              <p className="text-white/70">CO₂ avoided today</p>
+              <p className="mt-2 text-2xl font-semibold text-emerald-100">
+                {formatNumber(totalCo2Kg, { maximumFractionDigits: 1 })} kg
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+              <p className="text-white/70">Live power</p>
+              <p className="mt-2 text-2xl font-semibold text-white">
+                {formatNumber(totalLivePowerKw, { maximumFractionDigits: 1 })} kW
+              </p>
+            </div>
+          </div>
+        </div>
+      </Card>
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <Card>
+        <Card className="border-slate-100 bg-white/80 backdrop-blur">
           <div className="text-sm text-slate-500">Active Sites</div>
           <div className="mt-2 text-3xl font-semibold text-slate-900">
             {formatNumber(SITES.length)}
           </div>
           <div className="mt-1 text-xs text-slate-400">Operating with live telemetry</div>
         </Card>
-        <Card>
+        <Card className="border-slate-100 bg-white/80 backdrop-blur">
           <div className="text-sm text-slate-500">Installed Capacity</div>
           <div className="mt-2 text-3xl font-semibold text-slate-900">
             {formatNumber(TOTAL_INSTALLED_CAPACITY_KW, { maximumFractionDigits: 0 })} kW
           </div>
           <div className="mt-1 text-xs text-slate-400">Across solar and hybrid assets</div>
         </Card>
-        <Card>
+        <Card className="border-slate-100 bg-white/80 backdrop-blur">
           <div className="text-sm text-slate-500">CO₂ Avoided Today</div>
           <div className="mt-2 text-3xl font-semibold text-emerald-600">
             {formatNumber(totalCo2Kg, { maximumFractionDigits: 1 })} kg
@@ -151,7 +176,7 @@ export default function DashboardPage() {
             {formatNumber(totalEnergyKwh, { maximumFractionDigits: 1 })} kWh dispatched
           </div>
         </Card>
-        <Card>
+        <Card className="border-slate-100 bg-white/80 backdrop-blur">
           <div className="text-sm text-slate-500">Average Battery Reserve</div>
           <div className="mt-2 text-3xl font-semibold text-slate-900">
             {formatNumber(averageBatteryPct, { maximumFractionDigits: 0 })}%
@@ -163,20 +188,22 @@ export default function DashboardPage() {
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[1.7fr,1fr]">
-        <Card className="p-0">
+        <Card className="border-slate-100 p-0">
           <div className="flex items-center justify-between px-6 py-4">
-            <h2 className="text-lg font-semibold text-slate-900">Karnataka Sites</h2>
+            <h2 className="text-lg font-semibold text-slate-900">Live Karnataka atlas</h2>
             <span className="text-xs text-slate-500">
               Click a site pin or card to open detail
             </span>
           </div>
           <div className="px-6 pb-6">
-            <Map
-              sites={SITES}
-              onSiteClick={(id) => {
-                router.push(`/sites/${id}`);
-              }}
-            />
+            <div className="overflow-hidden rounded-2xl border border-slate-100 shadow-inner">
+              <Map
+                sites={SITES}
+                onSiteClick={(id) => {
+                  router.push(`/sites/${id}`);
+                }}
+              />
+            </div>
           </div>
         </Card>
 
@@ -187,7 +214,7 @@ export default function DashboardPage() {
             co2TodayKg={featuredCo2Today}
             lastUpdated={lastUpdated}
           />
-          <Card>
+          <Card className="border-slate-100 bg-white/90">
             <h3 className="text-sm font-semibold text-slate-700">Operational focus</h3>
             <ul className="mt-3 space-y-2 text-sm text-slate-600">
               <li>
@@ -208,9 +235,15 @@ export default function DashboardPage() {
 
       <section className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-slate-900">Live Sites</h2>
-          <span className="text-xs text-slate-500">
-            Updated every {Math.round(REFRESH_INTERVAL_MS / 1000)} seconds
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900">Live sites</h2>
+            <p className="text-xs text-slate-500">
+              Updated every {Math.round(REFRESH_INTERVAL_MS / 1000)} seconds with simulated
+              telemetry
+            </p>
+          </div>
+          <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
+            {formatNumber(SITES.length)} active
           </span>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
