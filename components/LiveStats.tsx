@@ -1,3 +1,5 @@
+import Card from "@/components/ui/card";
+
 interface LiveStatsProps {
   powerKw: number;
   batteryPct: number;
@@ -12,17 +14,33 @@ export default function LiveStats({
   lastUpdated,
 }: LiveStatsProps) {
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="text-sm font-medium text-slate-500">Live Generation</div>
-      <div className="text-3xl font-semibold text-slate-900">{powerKw.toFixed(2)} kW</div>
-      <div className="text-sm text-slate-600">Battery reserve: {batteryPct}%</div>
-      <div className="text-sm font-semibold text-emerald-600">
-        CO₂ avoided today: {co2TodayKg.toFixed(2)} kg
+    <Card className="overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-light text-white shadow-lg">
+      <div className="space-y-4">
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em]/relaxed text-white/70">Live generation</p>
+          <p className="mt-2 text-4xl font-semibold tracking-tight">{powerKw.toFixed(2)} kW</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 text-sm font-medium">
+          <div>
+            <p className="text-white/70">Battery reserve</p>
+            <p className="mt-1 text-lg font-semibold text-white">{batteryPct}%</p>
+          </div>
+          <div>
+            <p className="text-white/70">CO₂ avoided today</p>
+            <p className="mt-1 text-lg font-semibold text-emerald-100">
+              {co2TodayKg.toFixed(2)} kg
+            </p>
+          </div>
+        </div>
+
+        {lastUpdated ? (
+          <p className="text-xs text-white/60">Updated {lastUpdated}</p>
+        ) : (
+          <p className="text-xs text-white/60">Awaiting telemetry signal</p>
+        )}
       </div>
-      {lastUpdated ? (
-        <div className="text-xs text-slate-400">Updated {lastUpdated}</div>
-      ) : null}
-    </div>
+    </Card>
   );
 }
 
