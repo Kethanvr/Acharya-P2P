@@ -92,25 +92,28 @@ export default function SiteDetailClient({
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold text-slate-900">{site.name}</h1>
-          <p className="text-sm text-slate-500">
-            {site.district} · {site.type.toUpperCase()} · Installed {formatDate(site.installation_date)}
-          </p>
+      <Card className="border-none bg-gradient-to-r from-brand/10 via-white to-white">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.35em] text-brand-dark/70">Site spotlight</p>
+            <h1 className="text-3xl font-semibold text-slate-900">{site.name}</h1>
+            <p className="text-sm text-slate-600">
+              {site.district} · {site.type.toUpperCase()} · Installed {formatDate(site.installation_date)}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <CarbonBadge co2Kg={co2TodayKg} emissionFactor={emissionFactor} />
+            <Button variant="outline" onClick={handleExport}>
+              Export PDF
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <CarbonBadge co2Kg={co2TodayKg} emissionFactor={emissionFactor} />
-          <Button variant="outline" onClick={handleExport}>
-            Export PDF
-          </Button>
-        </div>
-      </div>
+      </Card>
 
       <div id="site-report" className="space-y-6">
         <div className="grid gap-6 lg:grid-cols-[1.6fr,1fr]">
-          <Card>
-            <div className="flex items-center justify-between">
+          <Card className="border-slate-100 bg-white/90">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-lg font-semibold text-slate-900">Generation trend</h2>
                 <p className="text-xs text-slate-500">5-minute resolution, auto-refreshed</p>
@@ -131,7 +134,7 @@ export default function SiteDetailClient({
               co2TodayKg={co2TodayKg}
               lastUpdated={lastUpdated}
             />
-            <Card className="space-y-3">
+            <Card className="space-y-3 border-slate-100 bg-white/90">
               <h3 className="text-sm font-semibold text-slate-700">Site snapshot</h3>
               <dl className="grid gap-3 text-sm text-slate-600">
                 <div className="flex items-center justify-between">
@@ -157,14 +160,17 @@ export default function SiteDetailClient({
           </div>
         </div>
 
-        <Card>
-          <div className="flex items-center justify-between">
+        <Card className="border-slate-100 bg-white/90">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-lg font-semibold text-slate-900">Carbon ledger</h2>
               <p className="text-xs text-slate-500">
                 Visible carbon math: CO₂ = energy (kWh) × emission factor
               </p>
             </div>
+            <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
+              {ledgerEntries.length} recent readings
+            </span>
           </div>
           <div className="mt-5 overflow-x-auto">
             <table className="min-w-full table-fixed border-spacing-y-2 text-sm">
