@@ -14,7 +14,7 @@ interface SiteCardProps {
 export default function SiteCard({ site, powerKw, batteryPct, onClick }: SiteCardProps) {
   return (
     <Card
-      className="cursor-pointer space-y-4 border-transparent bg-white/90 hover:border-brand/40"
+      className="group cursor-pointer space-y-4 border-slate-100 bg-white/95 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl"
       onClick={onClick}
     >
       <div className="flex items-center justify-between gap-3">
@@ -48,8 +48,8 @@ export default function SiteCard({ site, powerKw, batteryPct, onClick }: SiteCar
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-end text-sm font-medium text-brand">
-        View detail <ArrowRightIcon className="ml-2 h-4 w-4" />
+      <div className="flex items-center justify-end text-sm font-medium text-brand transition group-hover:text-brand-light">
+        View detail <ArrowRightIcon className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
       </div>
     </Card>
   );
