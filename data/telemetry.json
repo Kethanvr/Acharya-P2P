@@ -1,0 +1,18 @@
+{
+  "site_001": [
+    { "timestamp": "2025-11-13T08:00:00Z", "power_kw": 0.8, "battery_pct": 95 },
+    { "timestamp": "2025-11-13T08:05:00Z", "power_kw": 1.2, "battery_pct": 94 },
+    { "timestamp": "2025-11-13T08:10:00Z", "power_kw": 2.8, "battery_pct": 93 }
+  ],
+  "site_002": [
+    { "timestamp": "2025-11-13T08:00:00Z", "power_kw": 0.3, "battery_pct": 88 },
+    { "timestamp": "2025-11-13T08:05:00Z", "power_kw": 0.5, "battery_pct": 87 },
+    { "timestamp": "2025-11-13T08:10:00Z", "power_kw": 0.7, "battery_pct": 86 }
+  ],
+  "site_003": [
+    { "timestamp": "2025-11-13T08:00:00Z", "power_kw": 0.6, "battery_pct": 60 },
+    { "timestamp": "2025-11-13T08:05:00Z", "power_kw": 1.1, "battery_pct": 59 },
+    { "timestamp": "2025-11-13T08:10:00Z", "power_kw": 1.5, "battery_pct": 58 }
+  ]
+}
+

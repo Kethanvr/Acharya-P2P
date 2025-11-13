@@ -1,0 +1,24 @@
+[
+  {
+    "district": "Bangalore Urban",
+    "installed_capacity_mw": 823,
+    "co2_reduced_tons": 2500,
+    "policy_score": 92,
+    "renewable_index": 89
+  },
+  {
+    "district": "Tumkur",
+    "installed_capacity_mw": 450,
+    "co2_reduced_tons": 1800,
+    "policy_score": 81,
+    "renewable_index": 78
+  },
+  {
+    "district": "Davangere",
+    "installed_capacity_mw": 220,
+    "co2_reduced_tons": 940,
+    "policy_score": 70,
+    "renewable_index": 66
+  }
+]
+
