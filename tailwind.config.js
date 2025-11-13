@@ -14,6 +14,9 @@ module.exports = {
           dark: "#0D4C4D",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-poppins)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
