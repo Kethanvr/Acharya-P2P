@@ -101,12 +101,24 @@ export default function ReportsPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-semibold text-slate-900">Reports & exports</h1>
-        <p className="text-sm text-slate-500">
-          Package deployment insights as PDF or CSV handouts. Perfect for demo day.
-        </p>
-      </div>
+      <Card className="border-none bg-gradient-to-br from-brand/10 via-white to-white">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-brand-dark/70">
+              Demo-ready reporting
+            </p>
+            <h1 className="text-3xl font-semibold text-slate-900">Reports & exports</h1>
+            <p className="text-sm text-slate-600">
+              Package outcomes into shareable PDFs or CSVs and keep stakeholders aligned on
+              deployment momentum.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-brand/15 bg-white/80 p-4 text-xs text-slate-500 shadow-sm">
+            Includes live telemetry rollups and district analytics snapshots captured at the time of
+            export.
+          </div>
+        </div>
+      </Card>
 
       <div className="flex flex-wrap items-center justify-end gap-3">
         <Button variant="outline" onClick={handleExportCsv}>
@@ -116,7 +128,7 @@ export default function ReportsPage() {
       </div>
 
       <div id="reports-capture" className="space-y-6">
-        <Card>
+        <Card className="border-slate-100 bg-white/90">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-slate-900">District snapshot</h2>
@@ -161,7 +173,7 @@ export default function ReportsPage() {
           </div>
         </Card>
 
-        <Card>
+        <Card className="border-slate-100 bg-white/90">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-slate-900">Site performance summary</h2>
