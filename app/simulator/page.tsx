@@ -68,14 +68,27 @@ export default function SimulatorPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-semibold text-slate-900">Project simulator</h1>
-        <p className="text-sm text-slate-500">
-          Model a quick deployment, estimate carbon savings, and build a plan for district rollout.
-        </p>
-      </div>
+      <Card className="border-none bg-gradient-to-r from-white via-brand/10 to-white">
+        <div className="grid gap-4 md:grid-cols-[1.3fr,1fr] md:items-center">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-brand-dark/70">Scenario studio</p>
+            <h1 className="text-3xl font-semibold text-slate-900">Project simulator</h1>
+            <p className="text-sm text-slate-600">
+              Configure a deployment, preview carbon savings, and stash the most impactful
+              blueprints in a shareable plan.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-brand/20 bg-white/80 p-5 text-sm text-slate-600 shadow-sm">
+            <p className="font-semibold text-brand-dark">Quick tip</p>
+            <p className="mt-2">
+              Rural pumps thrive at 4–5 kW with a 20% subsidy. Try mixing policy incentives to see
+              the payback shift.
+            </p>
+          </div>
+        </div>
+      </Card>
 
-      <Card className="space-y-6">
+      <Card className="space-y-6 border-slate-100 bg-white/90">
         <div>
           <h2 className="text-lg font-semibold text-slate-900">Inputs</h2>
           <p className="text-xs text-slate-500">
@@ -145,14 +158,14 @@ export default function SimulatorPage() {
       </Card>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <Card>
+        <Card className="border-slate-100 bg-white/90">
           <div className="text-sm text-slate-500">Annual generation</div>
           <div className="mt-2 text-2xl font-semibold text-slate-900">
             {formatNumber(annualEnergyKwh, { maximumFractionDigits: 0 })} kWh
           </div>
           <div className="mt-1 text-xs text-slate-400">Based on capacity and irradiance</div>
         </Card>
-        <Card>
+        <Card className="border-slate-100 bg-white/90">
           <div className="text-sm text-slate-500">CO₂ avoided (annual)</div>
           <div className="mt-2 text-2xl font-semibold text-emerald-600">
             {formatNumber(annualCo2Kg, { maximumFractionDigits: 1 })} kg
@@ -161,7 +174,7 @@ export default function SimulatorPage() {
             Factor {CARBON.india_avg_grid_factor.toFixed(2)} kg/kWh
           </div>
         </Card>
-        <Card>
+        <Card className="border-slate-100 bg-white/90">
           <div className="text-sm text-slate-500">Payback period</div>
           <div className="mt-2 text-2xl font-semibold text-slate-900">
             {Number.isFinite(roi.payback_years) ? `${roi.payback_years} years` : "—"}
@@ -173,7 +186,7 @@ export default function SimulatorPage() {
         </Card>
       </section>
 
-      <Card className="space-y-4">
+      <Card className="space-y-4 border-slate-100 bg-white/90">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-slate-900">Deployment plan</h2>
