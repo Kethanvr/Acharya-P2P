@@ -8,6 +8,10 @@ Live renewable-energy intelligence for districts, sites, and planners — built 
 
 ---
 
+## 🏆 Tech Habba 2025 Win
+
+Renewalytics secured **First Place in the "Prompt to Product" event at Tech Habba 2025**, a national-level hackathon hosted by Acharya Institutes, Bengaluru (Nov 13–15, 2025). I represented CMRIT’s Information Science and Engineering department, demonstrating how AI-assisted planning can move districts from vision to deployment in record time. ([Award proof](https://drive.google.com/file/d/1El5u9-6VMieU23X_ipIio-j5Eh_QlLRF/view?usp=drive_link) · [GitHub profile](https://github.com/Kethanvr))
+
 ## Brief Project Description
 
 Renewalytics is a demo-first platform that reimagines how local governments and installers plan, simulate, and monitor renewable deployments. With mock yet realistic telemetry, carbon accounting, ROI simulations, and exportable insights, the experience shows how districts can go from plan → deploy → track → report in minutes.
@@ -86,9 +90,6 @@ This project was created with a hybrid workflow of human creativity and AI-assis
 - **Data:** Local JSON fixtures, deterministic telemetry simulator
 - **AI Layer:** Google Generative Language API (server-side)
 - **Reporting:** html2canvas + jsPDF for PDFs, CSV builders for exports
-
-
-
 
 ## What’s Next
 
