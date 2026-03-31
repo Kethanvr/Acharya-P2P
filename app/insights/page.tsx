@@ -193,12 +193,16 @@ export default function InsightsPage() {
             </Button>
           </div>
         </div>
-        <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+        <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
           {error ? (
             <p className="text-sm font-medium text-amber-700">{error}</p>
           ) : null}
           {aiOutput ? (
-            <div className="whitespace-pre-line">{aiOutput}</div>
+            <div className="max-h-80 overflow-auto rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="whitespace-pre-wrap break-words leading-relaxed text-slate-800">
+                {aiOutput}
+              </div>
+            </div>
           ) : (
             <span className="text-slate-500">
               Your recommendation will appear here. Add the secure API key to enable personalised
@@ -210,4 +214,3 @@ export default function InsightsPage() {
     </div>
   );
 }
-

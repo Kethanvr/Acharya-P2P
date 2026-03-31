@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 
 const MODEL_ID = "gemini-2.5-flash";
 const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent`;
+const SYSTEM_INSTRUCTION = `You are an energy deployment advisor for field teams in Karnataka.
+Respond in clear plain text using short bullet points.
+Keep the response concise (max 8 bullets, max 140 words total).
+Prioritize practical field guidance: site checks, safety, approvals, installation, and monitoring.
+If location or context is missing, include a single short clarifying question at the end.`;
 
 interface AssistantRequestBody {
   prompt?: string;
@@ -31,6 +36,9 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        systemInstruction: {
+          parts: [{ text: SYSTEM_INSTRUCTION }],
+        },
         contents: [
           {
             parts: [
@@ -41,10 +49,10 @@ export async function POST(request: Request) {
           },
         ],
         generationConfig: {
-          temperature: 0.6,
-          topK: 40,
+          temperature: 0.4,
+          topK: 30,
           topP: 0.8,
-          maxOutputTokens: 512,
+          maxOutputTokens: 220,
         },
       }),
     });
@@ -74,4 +82,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
