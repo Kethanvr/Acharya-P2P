@@ -120,7 +120,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      <Card className="relative overflow-hidden border-none bg-slate-900 text-white">
+      <Card className="relative overflow-hidden border-none bg-brand-dark text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(20,184,166,0.45),_transparent_55%)]" />
         <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl space-y-3">

@@ -14,7 +14,6 @@ const navLinks = [
   { href: "/insights", label: "Insights" },
   { href: "/simulator", label: "Simulator" },
   { href: "/reports", label: "Reports" },
-  { href: "/how-we-built", label: "How We Built" },
 ];
 
 const poppins = Poppins({
@@ -52,9 +51,16 @@ export default function RootLayout({
             </div>
           </header>
           <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-8">{children}</main>
-          <footer className="border-t border-slate-200 bg-white py-4">
-            <div className="mx-auto w-full max-w-7xl px-6 text-sm text-slate-500">
-              © {new Date().getFullYear()} Renewalytics · Demo mock-data experience
+          <footer className="border-t border-slate-200 bg-white py-6">
+            <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-500 md:flex-row">
+              <div>
+                © {new Date().getFullYear()} Renewalytics · Demo mock-data experience
+              </div>
+              <nav className="flex items-center gap-6">
+                <Link href="/how-we-built" className="transition hover:text-brand-dark">
+                  How We Built
+                </Link>
+              </nav>
             </div>
           </footer>
         </div>

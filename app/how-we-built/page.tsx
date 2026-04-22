@@ -7,7 +7,7 @@ const buildHighlights = [
     title: "Ideation to scaffold",
     items: [
       "Mapped demo narrative in Instruction.md to align UI, telemetry, and reporting needs.",
-      "Used Cursor + GPT-5 Codex to generate the Next.js App Router scaffold with Tailwind and shadcn-inspired components.",
+      "Used Cursor + Gemini 2.5 Flash to generate the Next.js App Router scaffold with Bun.js and Tailwind.",
       "Pre-loaded mock JSON datasets (sites, telemetry, districts) to keep the experience fully offline.",
     ],
   },
@@ -49,7 +49,7 @@ export default function HowWeBuiltPage() {
             How we built Renewalytics
           </h1>
           <p className="text-sm text-slate-600">
-            A rapid hackathon sprint powered by Cursor, GPT-5 Codex, and a
+            A rapid hackathon sprint powered by Bun.js, Gemini 2.5 Flash, and a
             focused renewable energy brief. Everything you see is mock-data
             driven, designed for live storytelling, and production-ready for
             future integrations.
@@ -86,21 +86,23 @@ export default function HowWeBuiltPage() {
           <div className="space-y-2 text-sm text-slate-600">
             <p className="font-medium text-slate-800">Core toolkit</p>
             <ul className="space-y-1">
-              <li>• Next.js 16 App Router + TypeScript</li>
+              <li>• Next.js 14 App Router + TypeScript</li>
+              <li>• Bun.js Runtime & Package Manager</li>
               <li>• Tailwind CSS with shadcn-inspired primitives</li>
               <li>
                 • Chart.js & React Chart.js 2 for telemetry visualisations
               </li>
-              <li>• Google Generative AI API (server-side routed)</li>
+              <li>• Gemini 2.5 Flash API (server-side routed)</li>
             </ul>
           </div>
           <div className="space-y-2 text-sm text-slate-600">
             <p className="font-medium text-slate-800">Delivery approach</p>
             <ul className="space-y-1">
               <li>
-                • Cursor + GPT-3.5 Codex pair-programming for rapid component
+                • Cursor + Gemini 2.5 Flash pair-programming for rapid component
                 iteration
               </li>
+              <li>• Bun.js for lightning-fast installs and execution</li>
               <li>• Mock-first development with local JSON fixtures</li>
               <li>
                 • Frequent lint/build checks to keep the repo deploy-ready
