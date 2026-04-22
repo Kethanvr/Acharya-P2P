@@ -49,7 +49,7 @@ export default function HowWeBuiltPage() {
             How we built Renewalytics
           </h1>
           <p className="text-sm text-slate-600">
-            A rapid hackathon sprint powered by Bun.js, Gemini 2.5 Flash, and a
+            A rapid hackathon sprint powered by Bun.js, Gemini 1.5 Flash, and a
             focused renewable energy brief. Everything you see is mock-data
             driven, designed for live storytelling, and production-ready for
             future integrations.
@@ -92,14 +92,14 @@ export default function HowWeBuiltPage() {
               <li>
                 • Chart.js & React Chart.js 2 for telemetry visualisations
               </li>
-              <li>• Gemini 2.5 Flash API (server-side routed)</li>
+              <li>• Gemini 1.5 Flash API (server-side routed)</li>
             </ul>
           </div>
           <div className="space-y-2 text-sm text-slate-600">
             <p className="font-medium text-slate-800">Delivery approach</p>
             <ul className="space-y-1">
               <li>
-                • Cursor + Gemini 2.5 Flash pair-programming for rapid component
+                • Cursor + Gemini 1.5 Flash pair-programming for rapid component
                 iteration
               </li>
               <li>• Bun.js for lightning-fast installs and execution</li>

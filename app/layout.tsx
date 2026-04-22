@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Renewalytics",
   description:
     "Mock data platform for renewable energy deployments across Karnataka districts.",
+  icons: {
+    icon: "/app_logo.png",
+    shortcut: "/app_logo.png",
+    apple: "/app_logo.png",
+  },
 };
 
 const navLinks = [

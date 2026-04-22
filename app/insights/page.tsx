@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 import Button from "@/components/ui/button";
 import Card from "@/components/ui/card";
@@ -193,12 +194,33 @@ export default function InsightsPage() {
             </Button>
           </div>
         </div>
-        <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+        <div className="space-y-3 rounded-2xl border border-brand/10 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm ring-1 ring-brand/5">
           {error ? (
             <p className="text-sm font-medium text-amber-700">{error}</p>
           ) : null}
           {aiOutput ? (
-            <div className="whitespace-pre-line">{aiOutput}</div>
+            <div className="prose prose-sm prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand prose-strong:text-brand-dark prose-pre:bg-slate-900 prose-pre:text-slate-100">
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => <h1 className="mb-4 text-xl font-bold text-brand-dark">{children}</h1>,
+                  h2: ({ children }) => <h2 className="mb-3 text-lg font-semibold text-brand-dark/90">{children}</h2>,
+                  h3: ({ children }) => <h3 className="mb-2 text-base font-semibold text-brand-dark/80">{children}</h3>,
+                  p: ({ children }) => <p className="mb-4 leading-relaxed text-slate-600">{children}</p>,
+                  strong: ({ children }) => <strong className="font-bold text-brand-dark">{children}</strong>,
+                  li: ({ children }) => <li className="mb-1 list-disc pl-1 marker:text-brand">{children}</li>,
+                  table: ({ children }) => (
+                    <div className="my-6 overflow-hidden rounded-lg border border-slate-200">
+                      <table className="min-w-full divide-y divide-slate-200">{children}</table>
+                    </div>
+                  ),
+                  thead: ({ children }) => <thead className="bg-slate-50">{children}</thead>,
+                  th: ({ children }) => <th className="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">{children}</th>,
+                  td: ({ children }) => <td className="border-t border-slate-200 px-4 py-2 text-sm text-slate-600">{children}</td>,
+                }}
+              >
+                {aiOutput}
+              </ReactMarkdown>
+            </div>
           ) : (
             <span className="text-slate-500">
               Your recommendation will appear here. Add the secure API key to enable personalised
@@ -210,4 +232,3 @@ export default function InsightsPage() {
     </div>
   );
 }
-

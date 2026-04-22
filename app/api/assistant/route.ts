@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const MODEL_ID = "gemini-2.5-flash";
+const MODEL_ID = "gemini-3.1-flash-lite-preview";
 const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent`;
 
 interface AssistantRequestBody {
@@ -25,6 +25,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // System prompt to ensure beautiful markdown formatting
+    const fullPrompt = `You are the Renewalytics AI Assistant, an expert in renewable energy deployments in Karnataka, India. 
+Respond to the user's request with detailed, actionable, and professionally formatted advice. 
+Use Markdown extensively:
+- Use bold for key terms.
+- Use bullet points for steps.
+- Use tables for data comparisons if relevant.
+- Keep the tone encouraging and expert.
+
+User Request: ${prompt}`;
+
     const response = await fetch(`${API_ENDPOINT}?key=${apiKey}`, {
       method: "POST",
       headers: {
@@ -35,16 +46,16 @@ export async function POST(request: Request) {
           {
             parts: [
               {
-                text: prompt,
+                text: fullPrompt,
               },
             ],
           },
         ],
         generationConfig: {
-          temperature: 0.6,
+          temperature: 0.7,
           topK: 40,
-          topP: 0.8,
-          maxOutputTokens: 512,
+          topP: 0.9,
+          maxOutputTokens: 1024,
         },
       }),
     });
