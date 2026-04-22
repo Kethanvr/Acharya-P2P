@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
@@ -32,10 +33,21 @@ export default function RootLayout({
     <html lang="en" className={poppins.variable}>
       <body className="min-h-screen bg-gray-50 font-sans text-slate-900 antialiased">
         <div className="flex min-h-screen flex-col">
-          <header className="border-b border-slate-200 bg-white/90 backdrop-blur">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-              <Link href="/dashboard" className="text-xl font-semibold text-brand-dark">
-                Renewalytics
+          <header className="border-b border-slate-200 bg-white/90 backdrop-blur sticky top-0 z-50">
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-3">
+              <Link href="/dashboard" className="flex items-center gap-2 group">
+                <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 transition-transform group-hover:scale-105">
+                  <Image
+                    src="/app_logo.png"
+                    alt="Renewalytics Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <span className="text-xl font-bold tracking-tight text-brand-dark">
+                  Renewalytics
+                </span>
               </Link>
               <nav className="flex items-center gap-6 text-sm font-medium text-slate-600">
                 {navLinks.map((link) => (
